@@ -1,7 +1,8 @@
-import { useRef, useEffect} from 'react';
+import { useRef, useEffect, useState} from 'react';
 
 function App(){
   const ele = useRef();
+  const [name, setName] = useState('Gaurab');
   // useEffect(()=>{
   //   console.log(ele);    // {current: input}
   // })
@@ -16,8 +17,8 @@ function App(){
   
   return(
     <>
-    <h1>Hello Parent Component</h1>
-    <input type="text" ref={ele}/> <br/> <br/>
+    <h1>{name} is changing input field</h1>
+    <input type="text" ref={ele} onChange={(event)=>setName(event.target.value)}/> <br/> <br/>
     {
       console.log(ele) //{current: undefined} in initial render
 
